@@ -3,4 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <item
+        android:id="@+id/item1"
+        android:title="Item 1" />
+
 </menu>

@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">DAMO-rollcall</string>
+    <string name="app_name">PassemLlista</string>
+    <string name="title_section1"> Title1</string>
+    <string name="title_section2"> Title2</string>
+    <string name="title_section3"> Title3</string>
+
 </resources>

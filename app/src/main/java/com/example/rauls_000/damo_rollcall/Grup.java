@@ -4,26 +4,30 @@ package com.example.rauls_000.damo_rollcall;
  * Created by thelaser on 28/12/17.
  */
 
+import android.util.Log;
+
 import com.example.rauls_000.damo_rollcall.Alumne;
 
 import java.util.ArrayList;
 
 public class Grup {
 
-    public CharSequence nom_grup;
-    public ArrayList<Alumne> alumnes;
-    public int classes_totals;
+    private CharSequence nom_grup="sense_nom";
+    private ArrayList<Alumne> alumnes;
+    private int classes_totals;
 
     public Grup(CharSequence nom, int class_tot){
         nom_grup = nom;
         classes_totals = class_tot;
+        alumnes = new ArrayList<Alumne>();
     }
 
-    public void afegir_alumne(Alumne alumne){
+    public void add_alumne(Alumne alumne){
+        Log.d("alumne", String.valueOf(alumne.view_nom()));
         alumnes.add(alumne);
     }
 
-    public void eliminar_alumne(CharSequence nom) {
+    public void remove_alumne(CharSequence nom) {
         Boolean found = false;
         Integer i = 0;
         while(i < alumnes.size() && !found){
@@ -33,6 +37,10 @@ public class Grup {
             }
             ++i;
         }
+    }
+
+    public CharSequence view_nom_grup() {
+        return nom_grup;
     }
 
 

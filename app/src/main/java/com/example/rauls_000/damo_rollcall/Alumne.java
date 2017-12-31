@@ -6,13 +6,14 @@ package com.example.rauls_000.damo_rollcall;
 
 public class Alumne {
 
-    public CharSequence dni;
-    public CharSequence nom_alumn;
-    public int assistit=0;
+    private CharSequence dni;
+    private CharSequence nom_alumn;
+    private int assistit;
 
     public Alumne (CharSequence identif, CharSequence nom) {
         dni = identif;
         nom_alumn = nom;
+        assistit = 0;
     }
 
     public CharSequence view_nom() {
@@ -24,6 +25,6 @@ public class Alumne {
     }
 
     public void add_assistencia() {
-
+        ++assistit;
     }
 }

@@ -23,6 +23,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 
+
+//TODO  Hacer que los elementos de las listas sean clickables e implementar el short y long click
+//TODO  Añadir ultimo elemento en todas las listas (+) para que al pulsarlo podamos añadir grupo
+/*TODO  Incluir en los elementos de las listas subitems, para indicar informacion de los elementos,
+        por ejemplo con los grupos, poner debajo del nombre del grupo el profesor asignado al grupo
+        o mierdas varias de este estilo.
+ */
+//TODO  Juntar el input con las bases de datos
+//TODO
+
 // we create a FragmentActivity that will contain fragments in it
 public class SlideAssignatures extends FragmentActivity {
 
@@ -226,6 +236,8 @@ public class SlideAssignatures extends FragmentActivity {
             grup_list = (ListView) rootView.findViewById(R.id.grup_list);
 
             grup_list.setAdapter(grups_adapter);
+
+
 
             return rootView;
         }

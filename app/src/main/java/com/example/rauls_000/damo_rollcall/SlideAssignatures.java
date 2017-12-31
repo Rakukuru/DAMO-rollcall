@@ -31,7 +31,7 @@ import android.widget.TextView;
         o mierdas varias de este estilo.
  */
 //TODO  Juntar el input con las bases de datos
-//TODO
+//TODO  Añadir metodos en las clases Assignatura, Alumne o Grup para interaccionar con Assistencia
 
 // we create a FragmentActivity that will contain fragments in it
 public class SlideAssignatures extends FragmentActivity {

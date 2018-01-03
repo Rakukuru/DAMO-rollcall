@@ -17,13 +17,24 @@ import java.util.List;
 public class PasarLlista extends Activity {
 
     public EditText editData;
+    public EditText editHora;
 
-    private final static String[] grupos = { "DAMO01", "DAM02", "DAMO03"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        // ####################### TEST DATA #####################################
+
+        Alumne alumne1 = new Alumne("dni1", "nom1");
+        Alumne alumne2 = new Alumne("dni2", "nom2");
+        Alumne alumne3 = new Alumne("dni3", "nom3");
+        Alumne alumne4 = new Alumne("dni4", "nom4");
+
+        // ####################### TEST DATA #####################################
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pasar_llista);
         editData = (EditText) findViewById(R.id.editData);
+        editHora = (EditText) findViewById(R.id.editHora);
         editData.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -33,11 +44,22 @@ public class PasarLlista extends Activity {
 
             }
         });
-        ArrayAdapter adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_dropdown_item, grupos);
+
+        editHora.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment newFragment = new SelectTimeFragment();
+                newFragment.show(getFragmentManager(), "TimePicker");
+            }
+        });
+
     }
 
     public void setdate(int year, int month, int day) {
         editData.setText(month+"/"+day+"/"+year);
+    }
+
+    public void settime(int hora, int min){
+        editHora.setText(hora+":"+min);
     }
 }

@@ -8,12 +8,10 @@ public class Alumne {
 
     private CharSequence dni;
     private CharSequence nom_alumn;
-    private int assistit;
 
     public Alumne (CharSequence identif, CharSequence nom) {
         dni = identif;
         nom_alumn = nom;
-        assistit = 0;
     }
 
     public CharSequence view_nom() {
@@ -22,9 +20,5 @@ public class Alumne {
 
     public CharSequence view_dni() {
         return dni;
-    }
-
-    public void add_assistencia() {
-        ++assistit;
     }
 }

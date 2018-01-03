@@ -13,17 +13,32 @@
     <ListView
         android:id="@+id/grup_list"
         android:layout_width="366dp"
-        android:layout_height="495dp"
-        android:layout_marginBottom="3dp"
+        android:layout_height="422dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:divider="@android:drawable/divider_horizontal_dim_dark"
+        android:dividerHeight="50.0sp"
         android:longClickable="true"
         android:padding="2dp"
-        android:dividerHeight="50.0sp"
         android:scrollbars="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="79dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="11dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="9dp"
+        android:background="@color/colorPrimary"
+        android:contentDescription="Add_button"
+        android:src="@drawable/ic_menu_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/grup_list" />
+
 </android.support.constraint.ConstraintLayout>

@@ -8,19 +8,22 @@ import android.util.Log;
 
 import com.example.rauls_000.damo_rollcall.Alumne;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 public class Grup {
 
     private CharSequence nom_grup="sense_nom";
-    private ArrayList<Alumne> alumnes;
-    private int classes_totals;
-    private ArrayList<Sessio>
+    private List<Alumne> alumnes;
+    private List<Sessio> sessions;
 
-    public Grup(CharSequence nom, int class_tot){
+    public Grup(CharSequence nom){
         nom_grup = nom;
-        classes_totals = class_tot;
         alumnes = new ArrayList<Alumne>();
+        sessions = new ArrayList<Sessio>();
     }
 
     public void add_alumne(Alumne alumne){
@@ -40,9 +43,41 @@ public class Grup {
         }
     }
 
+    public void add_sessio_grup(Calendar date){
+
+        Integer i = 0;
+        Boolean found = false;
+        while(i < sessions.size() && !found) {
+            if(sessions.get(i).getDate() == date) {
+                found = true;
+            }
+        }
+
+        if (!found) {
+            Sessio sessio = new Sessio(alumnes, date);
+            sessions.add(sessio);
+        }
+
+    }
+
+    public Sessio mod_sessio(Calendar date, CharSequence nom_alumne) {
+        Integer i = 0;
+        Boolean found = false;
+        Sessio search_target = null;
+        while(i < sessions.size() && !found) {
+            if(sessions.get(i).getDate() == date) {
+                sessions.get(i).setAssistencia(nom_alumne);
+            }
+        }
+
+        return search_target;
+    }
+
+    public ArrayList<Sessio> getSessions() { return (ArrayList)sessions; }
     public CharSequence view_nom_grup() {
         return nom_grup;
     }
+    public int get_classes_tot() {return sessions.size();}
 
 
 }

@@ -17,8 +17,10 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -58,41 +60,44 @@ public class SlideAssignatures extends FragmentActivity {
 
         // ####################### TEST DATA #####################################
 
-        Alumne alumne1 = new Alumne("dni1", "nom1");
-        Alumne alumne2 = new Alumne("dni2", "nom2");
-        Alumne alumne3 = new Alumne("dni3", "nom3");
-        Alumne alumne4 = new Alumne("dni4", "nom4");
-
-        Grup grup1 = new Grup("grup11", 12);
-        Grup grup2 = new Grup("grup12", 13);
-        Grup grup3 = new Grup("grup13", 14);
 
         Assignatura assig1 = new Assignatura("Alguien", "Desarrollo", "DES");
 
-        assig1.add_grup(grup1);
-        assig1.add_grup(grup2);
+        assig1.add_grup("grup11");
+        assig1.add_grup("grup12");
+
+        assig1.add_alumne("dni1","nom1", "grup11");
+        assig1.add_alumne("dni2","nom2", "grup11");
+        assig1.add_alumne("dni3","nom3", "grup11");
+        assig1.add_alumne("dni4","nom4", "grup11");
 
 
-        assig1.add_alumne("grup11",alumne1);
-        assig1.add_alumne("grup12",alumne2);
+        assig1.add_alumne("dni10","nom10", "grup12");
+        assig1.add_alumne("dni9","nom9", "grup12");
+        assig1.add_alumne("dni8","nom8", "grup12");
+
+
 
 
         Assignatura assig2 = new Assignatura("Otro Alguien", "Penisima", "PEN");
 
-        assig2.add_grup(grup3);
-        assig2.add_grup(grup2);
+        assig2.add_grup("grup11213");
+        assig2.add_grup("grup1251");
+
 
         Assignatura assig3 = new Assignatura("masuno", "Otramas", "MAS");
 
-        assig3.add_grup(grup1);
-        assig3.add_grup(grup2);
-        assig3.add_grup(grup3);
+        assig3.add_grup("grup11551");
+        assig3.add_grup("grup12231");
 
         assignatures.add(assig1);
         assignatures.add(assig2);
         assignatures.add(assig3);
 
-        Log.d("sumthin", "here");
+
+
+        Log.d("sumthin", String.valueOf(assig1.quantity_grups()));
+        Log.d("sumthin", String.valueOf(assig1.get_grup(0)));
 
         // ########################################################################
 
@@ -157,6 +162,8 @@ public class SlideAssignatures extends FragmentActivity {
                 CharSequence name_key = "nomgrup";
                 // This method is easier than using Serializables or Parcelables
                 // although simpler and maybe a bit less structured
+
+
                 for (Integer i=0; i < assignatures.get(position).quantity_grups(); ++i){
                     String key = name_key + i.toString();
                     Log.d("keys", key);
@@ -190,7 +197,7 @@ public class SlideAssignatures extends FragmentActivity {
                 }
             }
             else {
-                return null;
+                return "+";
             }
         }
     }
@@ -199,6 +206,7 @@ public class SlideAssignatures extends FragmentActivity {
 
         Context context;
         ListView grup_list;
+        ImageButton button_add;
 
 
         public PopulatedSlideFragment() {
@@ -235,12 +243,43 @@ public class SlideAssignatures extends FragmentActivity {
 
             grup_list = (ListView) rootView.findViewById(R.id.grup_list);
 
+            grup_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                }
+            });
+
+            grup_list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                @Override
+                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                    return false;
+                }
+            });
+
             grup_list.setAdapter(grups_adapter);
+
+
+            button_add = (ImageButton) rootView.findViewById(R.id.imageButton);
+
+            button_add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    obreCreacioGrup();
+                }
+            });
 
 
 
             return rootView;
         }
+
+        public void obreCreacioGrup() {
+            Intent intent = new Intent(getActivity(), add_assig_button_stub.class);
+            startActivity(intent);
+        }
+
     }
 
     /*
@@ -271,7 +310,7 @@ public class SlideAssignatures extends FragmentActivity {
     }
     */
 
-    public static class CreationSlideFragment extends Fragment implements Button.OnClickListener{
+    public static class CreationSlideFragment extends Fragment{
 
         Button add_button;
 
@@ -284,15 +323,17 @@ public class SlideAssignatures extends FragmentActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_creation, container,  false);
             add_button = (Button) rootView.findViewById(R.id.add_button);
-            add_button.setOnClickListener(this);
+            add_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    creacioAssignatura();
+                }
+            });
             return rootView;
         }
 
-        public void onClick(View v){
-            /*  The function getActivity() returns the activity the fragment is on.
-             *  If we had to call an activity from inside another activity (that is,
-             *  not inside a fragment) we would use this instead of getActivity()
-             */
+
+        public void creacioAssignatura() {
             Intent intent = new Intent(getActivity(), add_assig_button_stub.class);
             startActivity(intent);
         }

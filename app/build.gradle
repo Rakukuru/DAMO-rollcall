@@ -16,6 +16,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    dependencies {
+        //noinspection GradleCompatible
+        //compile 'com.android.support:support-v4:21.+'
+        //noinspection GradleCompatible
+        //compile 'com.android.support:appcompat-v7:24.2.0'
+    }
 }
 
 dependencies {

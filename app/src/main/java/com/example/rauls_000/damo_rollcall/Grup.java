@@ -15,6 +15,7 @@ public class Grup {
     private CharSequence nom_grup="sense_nom";
     private ArrayList<Alumne> alumnes;
     private int classes_totals;
+    private ArrayList<Sessio>
 
     public Grup(CharSequence nom, int class_tot){
         nom_grup = nom;

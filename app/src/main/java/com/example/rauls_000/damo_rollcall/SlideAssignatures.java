@@ -28,7 +28,7 @@ import android.widget.TextView;
 //TODO  Añadir ultimo elemento en todas las listas (+) para que al pulsarlo podamos añadir grupo
 /*TODO  Incluir en los elementos de las listas subitems, para indicar informacion de los elementos,
         por ejemplo con los grupos, poner debajo del nombre del grupo el profesor asignado al grupo
-        o mierdas varias de este estilo.
+        o mierdas varias de este estilo. ESTO PARA EL FINAL
  */
 //TODO  Juntar el input con las bases de datos
 //TODO  Añadir metodos en las clases Assignatura, Alumne o Grup para interaccionar con Assistencia

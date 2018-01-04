@@ -27,4 +27,10 @@ public class Alumne {
     public void add_assistencia() {
         ++assistit;
     }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return this.nom_alumn.toString();
+    }
 }

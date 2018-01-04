@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DAMO-rollcall.iml" filepath="$PROJECT_DIR$/DAMO-rollcall.iml" />
+      <module fileurl="file://C:\Users\rauls_000\AndroidStudioProjects\DAMOrollcall\DAMO-rollcall.iml" filepath="C:\Users\rauls_000\AndroidStudioProjects\DAMOrollcall\DAMO-rollcall.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DAMOrollcall.iml" filepath="$PROJECT_DIR$/DAMOrollcall.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

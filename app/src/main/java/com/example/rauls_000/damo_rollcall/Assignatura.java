@@ -10,13 +10,11 @@ import java.util.ArrayList;
 
 public class Assignatura {
 
-    private CharSequence professor;
     private CharSequence nom_assig;
     private CharSequence acronim;
     private ArrayList<Grup> grups;
 
-    public Assignatura(CharSequence prof, CharSequence nom, CharSequence acron) {
-        professor = prof;
+    public Assignatura(CharSequence nom, CharSequence acron) {
         nom_assig = nom;
         acronim = acron;
         grups = new ArrayList<Grup>();
@@ -72,9 +70,6 @@ public class Assignatura {
         return nom_assig;
     }
     public CharSequence view_acronim() { return acronim; }
-    public CharSequence view_prof() {
-        return professor;
-    }
     public Grup get_grup(int position) {
         return grups.get(position);
     }

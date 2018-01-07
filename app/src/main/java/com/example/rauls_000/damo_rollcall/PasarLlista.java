@@ -31,7 +31,7 @@ public class PasarLlista extends Activity {
     public EditText editData;
     public EditText editHora;
     public ListView llistaalum;
-    public Button saveButton;
+    private Button saveButton;
     ListAlumneAdapter adaptador;
     public ArrayList<Assistencia> sessio;
     public Calendar calendar;
@@ -68,7 +68,7 @@ public class PasarLlista extends Activity {
         // Ens guardem referencies als butons i la llista
         editData = (EditText) findViewById(R.id.editData);
         editHora = (EditText) findViewById(R.id.editHora);
-        saveButton = (Button) findViewById(R.id.savebutton);
+        saveButton = (Button) findViewById(R.id.savebuttonPasarLlista);
         llistaalum = (ListView) findViewById(R.id.llistaAlum);
         // Creem un calendar
         calendar = Calendar.getInstance();
